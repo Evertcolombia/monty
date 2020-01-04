@@ -1,0 +1,13 @@
+/*main defintion*/
+void __RETURN__(char *string, char *str, char *str1)
+{
+        fprintf(stderr, string, str, str1);
+        exit(EXIT_FAILURE);
+}
+
+
+/*Error by wrong usage*/
+__RETURN__("USAGE: monty file\n", "", "");
+
+/*error by not open file*/
+__RETURN__("Error: Can't open file %s\n", filename, "");

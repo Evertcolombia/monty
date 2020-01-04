@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 
 void __RETURN__(char *string, char *str, char *str1);
 /**
@@ -38,5 +39,13 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* Global variable */
+extern char *input[1024];
+char *input[1024];
+
+void f_push(stack_t **stack, unsigned int line_number);
+void add_dnodeint(stack_t **stack, stack_t *new_node);
+
 
 #endif

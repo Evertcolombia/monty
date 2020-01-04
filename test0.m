@@ -1,4 +1,3 @@
-push 1 efer
-dgfsd
 push 3
-pall
+push 2
+push 1
