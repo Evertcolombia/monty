@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 	char *user_buffer = NULL, *line, *delim = "\n ";
 	FILE *file_open;
 	size_t bufer_size = 0;
+	int state = 0;
 	unsigned int i = 0, num_line = 0;
 	stack_t *stack = NULL;
 
@@ -38,11 +39,15 @@ int main(int argc, char **argv)
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
 				funcs[i].f(&stack, num_line);
+				state = 1;
 				break;
 			} i++;
 		}
+		if (state == 1)
+			continue;
+		exit(EXIT_FAILURE);
 	} freeStack(&stack), fclose(file_open);
-	return (1);
+	return (EXIT_SUCCESS);
 }
 
 void __RETURN__(char *string, char *str, char *str1)
@@ -50,4 +55,3 @@ void __RETURN__(char *string, char *str, char *str1)
         fprintf(stderr, string, str, str1);
         exit(EXIT_FAILURE);
 }
-
