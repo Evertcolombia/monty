@@ -8,16 +8,15 @@ int main(int argc, char **argv)
 	unsigned int i = 0, num_line = 0;
 	stack_t *stack = NULL;
 
-	instruction_t  funcs [] = {
-                {"push", f_push}
-        };
+	instruction_t funcs[] = {
+		{"push", f_push}, {"pall", f_pall}
+	};
 
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		return (0);
 	}
-	
 	file_open = fopen(argv[argc - 1], "r");
 	if (file_open == NULL)
 	{
