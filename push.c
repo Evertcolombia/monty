@@ -1,16 +1,17 @@
 #include "monty.h"
 
-void f_push(stack_t **stack, __attribute((unused))unsigned int line_number)
+void f_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_num = NULL;
+	char *num = NULL;
 
 	if (input[1] == NULL)
 	{
-		printf("Error is not a number here\n");
-		freeStack(&stack), /*fclose(file_open)*/;
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		freeStack(stack) /*fclose(file_open)*/;
 		exit(EXIT_FAILURE);
 	}
-	
+	num = input[1];
 	/*if (isdigit(number) == 0)
 	{
 		
@@ -19,19 +20,14 @@ void f_push(stack_t **stack, __attribute((unused))unsigned int line_number)
 		printf("eroor is not number %d\n", line_number);
 		exit(EXIT_FAILURE);
 	}*/
-
 	new_num = malloc(sizeof(stack_t));
 	if (new_num == NULL)
 	{
-		/*
-                  free stack and file
-                */
-		printf("error malloc failed\n");
-		/*exit(EXIT_FAILURE);*/
-		exit(0);
+		freeStack(stack); /*fclose(file_open)*/
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
-
-	new_num->n = atoi(input[1]);
+	new_num->n = atoi(num);
 	add_dnodeint(stack, new_num);
 }
 
