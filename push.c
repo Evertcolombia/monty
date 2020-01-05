@@ -2,8 +2,6 @@
 
 void f_push(stack_t **stack, __attribute((unused))unsigned int line_number)
 {
-
-	/*char *number = NULL;*/
 	stack_t *new_num = NULL;
 
 	if (input[1] == NULL)

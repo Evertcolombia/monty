@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	instruction_t funcs[] = {
-		{"push", f_push}, {"pall", f_pall}
+		{"push", f_push}, {"pall", f_pall}, {"pint", f_pint}
 	};
 
 	if (argc != 2)
