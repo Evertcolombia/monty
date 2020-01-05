@@ -54,6 +54,7 @@ int main(int argc, char **argv)
 				break;
 			} i++;
 		}
-	}
+	} freeStack(&stack);
+	printf("stack was free\n");
 	return (1);
 }
