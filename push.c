@@ -58,9 +58,20 @@ void f_pop(stack_t **stack, unsigned int line_number)
 		printf("L%d: can't pop an empty", line_number);
 		exit(EXIT_FAILURE);
 	}
+
 	tmp = *stack;
-	/*while (tmp != NULL)
-		tmp = tmp->next;*/
-	printf("will free %d\n", tmp->n);
-	/*free(tmp);*/
+	if ((*stack)->next != NULL)
+	{
+		/*tmp = (*stack)->prev;*/
+		tmp->prev = (*stack)->prev->prev;
+		/*free(*stack);*/
+	}
+	else
+	{
+		/*tmp = (*stack)->prev;*/
+		printf("tmp->n : %d", tmp->n);
+		/*tmp->prev = (*stack)->prev;*/
+		/*free(*stack);*/
+	}
+	/*tmp->prev = (*stack)->prev;*/
 }
