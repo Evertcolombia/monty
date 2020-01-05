@@ -1,6 +1,5 @@
 #include "monty.h"
 void __RETURN__(char *string, char *str, char *str1);
-instruction_t op_funcs(int agc);
 /**
  * main - entry point
  * @argc: total of arguments
@@ -16,14 +15,13 @@ int main(int argc, char **argv)
 	int state = 0;
 	unsigned int i = 0, num_line = 0;
 	stack_t *stack = NULL;
-	instruction_t funcs[] = op_funcs(argc);
-	/*instruction_t funcs[] = {
+	instruction_t funcs[] = {
 		{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
 		{"pop", f_pop}, {"NULL", NULL}
 	};
 
 	if (argc != 2)
-		__RETURN__("USAGE: monty file\n", "", "");*/
+		__RETURN__("USAGE: monty file\n", "", "");
 
 	file_open = fopen(argv[argc - 1], "r");
 	if (file_open == NULL)
@@ -55,16 +53,4 @@ void __RETURN__(char *string, char *str, char *str1)
 {
         fprintf(stderr, string, str, str1);
         exit(EXIT_FAILURE);
-}
-
-instruction_t op_funcs(int agc)
-{
-	instruction_t funcs[] = {
-		{"push", f_push}, {"pall", f_pall}, 
-		{"pint", f_pint}, {"pop", f_pop},
-		{"NULL", NULL}
-        }
-	if (agc != 2)
-		__RETURN__("USAGE: monty file\n", "", "");
-        return (funcs);
 }
