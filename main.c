@@ -3,7 +3,7 @@
 int main(int argc, char **argv)
 {
 	char *user_buffer = NULL, /**input[2],*/ *line, *delim = "\n ";
-	FILE *file_open;
+	/*FILE *file_open;*/
 	size_t bufer_size = 0;
 	unsigned int i = 0;
 	unsigned int num_line = 0;
@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 	{
 		line = user_buffer;
 		num_line++;
-		printf("user line : %s", line);
 
 		/*while (line[i] == delim[0] || line[i] == delim[1])
 		{
@@ -39,7 +38,7 @@ int main(int argc, char **argv)
 			i++;
 		}*/
 
-		input[0] = strtok(user_buffer, delim);
+		input[0] = strtok(line, delim);
 		input[1] = strtok(NULL, delim);
 		i = 0;
 
@@ -50,14 +49,11 @@ int main(int argc, char **argv)
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
 				printf("calling function \n");
-
-				/*push function*/
 				/*f_push(&stack, num_line);*/
 				funcs[i].f(&stack, num_line);
 				break;
 			} i++;
 		}
 	}
-
 	return (1);
 }
