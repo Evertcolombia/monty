@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 		line = user_buffer, num_line++;
 		input[0] = strtok(line, delim);
 		input[1] = strtok(NULL, delim);
+
 		while (i <= num_line)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
