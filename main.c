@@ -35,17 +35,14 @@ int main(int argc, char **argv)
 		line = user_buffer, num_line++;
 		input[0] = strtok(line, delim);
 		input[1] = strtok(NULL, delim);
-
+		i = 0;
 		while (funcs[i].opcode != NULL)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
-				printf("calling function %s\n", funcs[i].opcode);
 				funcs[i].f(&stack, num_line);
 				break;
-			} printf("i = %d\n", i); 
-			i++;
-			printf("i = %d\n", i);
+			} i++;
 		}
 	} freeStack(&stack), fclose(file_open);
 	return (1);
