@@ -42,7 +42,6 @@ int main(int argc, char **argv)
 		input[0] = strtok(user_buffer, delim);
 		input[1] = strtok(NULL, delim);
 		i = 0;
-		printf("line tokenitation: input[0]: %s, input[1]: %s\n", input[0], input[1]);
 
 		while (i <= num_line)
 		{
