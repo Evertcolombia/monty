@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * main - entry point
+ * @argc: total of arguments
+ * @argv: arguments
+ *
+ * Return:  0  on success
+ */
 int main(int argc, char **argv)
 {
 	char *user_buffer = NULL, *line, *delim = "\n ";
