@@ -25,8 +25,6 @@ int main(int argc, char **argv)
 		printf("Error: Can't open file %s\n", argv[argc - 1]);
 		return (0);
 	}
-	printf("file was open:  %s\n", argv[argc - 1]);
-
 	while (getline(&user_buffer, &bufer_size, file_open) > 0)
 	{
 		line = user_buffer;
@@ -44,11 +42,8 @@ int main(int argc, char **argv)
 
 		while (i <= num_line)
 		{
-			printf("funcs[i].opcode: %s\n", funcs[i].opcode);
-
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
-				printf("calling function \n");
 				/*f_push(&stack, num_line);*/
 				funcs[i].f(&stack, num_line);
 				break;
