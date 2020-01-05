@@ -6,10 +6,6 @@ void f_push(stack_t **stack, unsigned int line_number)
 	/*char *number = NULL;*/
 	stack_t *new_num = NULL;
 
-	/*
-	  here we have t ouse a global array that contains
-	  that contains the  tokenize line and use this as number	
-	*/
 	if (input[1] == NULL)
 	{
 		printf("Error is not a number here\n");
