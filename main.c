@@ -15,7 +15,8 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	instruction_t funcs[] = {
-		{"push", f_push}, {"pall", f_pall}, {"pint", f_pint}
+		{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
+		{"pop", f_pop}, {"NULL", NULL}
 	};
 
 	if (argc != 2)
@@ -35,13 +36,16 @@ int main(int argc, char **argv)
 		input[0] = strtok(line, delim);
 		input[1] = strtok(NULL, delim);
 
-		while (i <= num_line)
+		while (funcs[i].opcode != NULL)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
+				printf("calling function %s\n", funcs[i].opcode);
 				funcs[i].f(&stack, num_line);
 				break;
-			} i++;
+			} printf("i = %d\n", i); 
+			i++;
+			printf("i = %d\n", i);
 		}
 	} freeStack(&stack), fclose(file_open);
 	return (1);
