@@ -2,12 +2,11 @@
 
 int main(int argc, char **argv)
 {
-	char *user_buffer = NULL, /**input[2],*/ *line, *delim = "\n ";
+	char *user_buffer = NULL, *line, *delim = "\n ";
 	FILE *file_open;
 	size_t bufer_size = 0;
-	unsigned int i = 0;
-	unsigned int num_line = 0;
-	stack_t *stack = NULL; /*, *new_num = NULL;*/
+	unsigned int i = 0, num_line = 0;
+	stack_t *stack = NULL;
 
 	instruction_t  funcs [] = {
                 {"push", f_push}
@@ -27,19 +26,9 @@ int main(int argc, char **argv)
 	}
 	while (getline(&user_buffer, &bufer_size, file_open) > 0)
 	{
-		line = user_buffer;
-		num_line++;
-
-		/*while (line[i] == delim[0] || line[i] == delim[1])
-		{
-			printf("pasa bucle\n");
-			i++;
-		}*/
-
+		line = user_buffer, num_line++;
 		input[0] = strtok(line, delim);
 		input[1] = strtok(NULL, delim);
-		i = 0;
-
 		while (i <= num_line)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
