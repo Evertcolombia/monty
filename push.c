@@ -44,10 +44,9 @@ void f_pall(stack_t **stack, __attribute((unused))unsigned int line_number)
 	tmp = *stack;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-
-	/*while (tmp)
+	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->prev;
-	}*/
+	}
 }
