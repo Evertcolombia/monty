@@ -7,7 +7,7 @@ void f_push(stack_t **stack, __attribute((unused))unsigned int line_number)
 	if (input[1] == NULL)
 	{
 		printf("Error is not a number here\n");
-		/*Free stack and file*/
+		freeStack(&stack), /*fclose(file_open)*/;
 		exit(EXIT_FAILURE);
 	}
 	
