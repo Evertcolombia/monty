@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void f_push(stack_t **stack, unsigned int line_number)
+void f_push(stack_t **stack, __attribute((unused))unsigned int line_number)
 {
 
 	/*char *number = NULL;*/
@@ -34,8 +34,6 @@ void f_push(stack_t **stack, unsigned int line_number)
 	}
 
 	new_num->n = atoi(input[1]);
-	printf("Number added good job\n");
 	add_dnodeint(stack, new_num);
-	printf("Nice job\n");
-	printf("number of line %d\n", line_number);
+	printf("%d\n", new_num->n);
 }
