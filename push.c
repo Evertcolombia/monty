@@ -34,6 +34,7 @@ void f_push(stack_t **stack, unsigned int line_number)
 	}
 	new_num->n = atoi(num);
 	add_dnodeint(stack, new_num);
+	printf("si paso\n");
 }
 
 /**
