@@ -1,4 +1,5 @@
 #include "monty.h"
+void __RETURN__(char *string, char *str, char *str1);
 /**
  * main - entry point
  * @argc: total of arguments
@@ -20,16 +21,12 @@ int main(int argc, char **argv)
 	};
 
 	if (argc != 2)
-	{
-		printf("USAGE: monty file\n");
-		return (0);
-	}
+		__RETURN__("USAGE: monty file\n", "", "");
+
 	file_open = fopen(argv[argc - 1], "r");
 	if (file_open == NULL)
-	{
-		printf("Error: Can't open file %s\n", argv[argc - 1]);
-		return (0);
-	}
+		__RETURN__("Error: Can't open file %s\n", argv[argc -1], "");
+
 	while (getline(&user_buffer, &bufer_size, file_open) > 0)
 	{
 		line = user_buffer, num_line++;
@@ -47,3 +44,10 @@ int main(int argc, char **argv)
 	} freeStack(&stack), fclose(file_open);
 	return (1);
 }
+
+void __RETURN__(char *string, char *str, char *str1)
+{
+        fprintf(stderr, string, str, str1);
+        exit(EXIT_FAILURE);
+}
+
