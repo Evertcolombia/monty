@@ -53,7 +53,8 @@ int main(int argc, char **argv)
 				printf("calling function \n");
 
 				/*push function*/
-				f_push(&stack, num_line);
+				/*f_push(&stack, num_line);*/
+				funcs[i].f(&stack, num_line);
 				break;
 			} i++;
 		}
