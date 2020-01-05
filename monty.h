@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-void __RETURN__(char *string, char *str, char *str1);
+/*void __RETURN__(char *string, char *str, char *str1);*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -43,8 +43,6 @@ typedef struct instruction_s
 /* Global variable */
 extern char *input[1024];
 char *input[1024];
-
-FILE *file_open;
 
 void f_push(stack_t **stack, unsigned int line_number);
 void add_dnodeint(stack_t **stack, stack_t *new_node);

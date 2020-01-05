@@ -3,7 +3,7 @@
 int main(int argc, char **argv)
 {
 	char *user_buffer = NULL, /**input[2],*/ *line, *delim = "\n ";
-	/*FILE *file_open;*/
+	FILE *file_open;
 	size_t bufer_size = 0;
 	unsigned int i = 0;
 	unsigned int num_line = 0;
