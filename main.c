@@ -44,7 +44,6 @@ int main(int argc, char **argv)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
-				/*f_push(&stack, num_line);*/
 				funcs[i].f(&stack, num_line);
 				break;
 			} i++;
