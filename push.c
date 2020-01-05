@@ -19,12 +19,12 @@ void f_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	num = input[1];
-	/*if (isdigit(number) == 0)*/
-	/*{*/
-		  /*free stack and file*/
-		/*printf("eroor is not number %d\n", line_number);*/
-		/*exit(EXIT_FAILURE);*/
-	/*}*/
+	if (is_number(num) == 0)
+	{
+		freeStack(stack);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new_num = malloc(sizeof(stack_t));
 	if (new_num == NULL)
 	{
