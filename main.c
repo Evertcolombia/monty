@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 		{"pop", f_pop}, {"NULL", NULL}
 	};
 
-	
+	if (argc != 2)
+		__RETURN__("USAGE: monty file\n", "", "");
 
 	file_open = fopen(argv[argc - 1], "r");
 	if (file_open == NULL)
