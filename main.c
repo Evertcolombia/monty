@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
 	file_open = fopen(argv[argc - 1], "r");
 	if (file_open == NULL)
-		__RETURN__("Error: Can't open file %s\n", argv[argc -1], "");
+		__RETURN__("Error: Can't open file %s\n", argv[argc - 1], " ");
 
 	while (getline(&user_buffer, &bufer_size, file_open) > 0)
 	{
@@ -49,8 +49,15 @@ int main(int argc, char **argv)
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * __RETURN__ - return posix
+ * @string: string
+ * @str: param
+ * @str1: param
+ * Return: exit
+ */
 void __RETURN__(char *string, char *str, char *str1)
 {
-        fprintf(stderr, string, str, str1);
-        exit(EXIT_FAILURE);
+	fprintf(stderr, string, str, str1);
+	exit(EXIT_FAILURE);
 }

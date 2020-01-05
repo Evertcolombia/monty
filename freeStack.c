@@ -1,5 +1,8 @@
 #include "monty.h"
-
+/**
+ * freeStack - free a dlinked list
+ * @stack: list
+ */
 void freeStack(stack_t **stack)
 {
 	stack_t *tmp;

@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * f_push - push a new element to the stack
+ * @stack: stack in dlinked
+ * @line_number: number of the line
+ *
+ * Return: none
+ */
 void f_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_num = NULL;
@@ -12,14 +19,12 @@ void f_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	num = input[1];
-	/*if (isdigit(number) == 0)
-	{
-		
-		  free stack and file
-		
-		printf("eroor is not number %d\n", line_number);
-		exit(EXIT_FAILURE);
-	}*/
+	/*if (isdigit(number) == 0)*/
+	/*{*/
+		  /*free stack and file*/
+		/*printf("eroor is not number %d\n", line_number);*/
+		/*exit(EXIT_FAILURE);*/
+	/*}*/
 	new_num = malloc(sizeof(stack_t));
 	if (new_num == NULL)
 	{
@@ -31,9 +36,17 @@ void f_push(stack_t **stack, unsigned int line_number)
 	add_dnodeint(stack, new_num);
 }
 
-void f_pall(stack_t **stack, __attribute((unused))unsigned int line_number)
+/**
+ * f_pall - pall a new element to the stack
+ * @stack: stack in dlinked
+ * @line_number: number of the line
+ *
+ * Return: none
+ */
+void f_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = NULL;
+	(void) line_number;
 
 	tmp = *stack;
 	while (tmp->next != NULL)
@@ -44,7 +57,13 @@ void f_pall(stack_t **stack, __attribute((unused))unsigned int line_number)
 		tmp = tmp->prev;
 	}
 }
-
+/**
+ * f_pop - push a new element to the stack
+ * @stack: stack in dlinked
+ * @line_number: number of the line
+ *
+ * Return: none
+ */
 void f_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
