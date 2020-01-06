@@ -62,3 +62,14 @@ void f_add(stack_t **stack, unsigned int line_number)
 	f_pop(stack, line_number);
 	(*stack)->n = (*stack)->n + tmp;
 }
+
+/**
+ * f_nop - print all nodes in a stack
+ * @stack: double linked list
+ * @line_number: integer
+ */
+void f_nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
