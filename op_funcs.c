@@ -14,7 +14,8 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 	size_t buffer_size = 0;
 	instruction_t funcs[] = {
 		{"push", f_push}, {"pall", f_pall},
-		{"pint", f_pint}, {NULL, NULL}
+		{"pint", f_pint}, {"pop", f_pop},
+		{NULL, NULL}
 	};
 
 	if (!file)
@@ -39,6 +40,7 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 		{
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
+				/*printf("%s\n", funcs[i].opcode);*/
 				funcs[i].f(stack, line_number);
 				state = 1;
 				break;

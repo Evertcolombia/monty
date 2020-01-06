@@ -14,4 +14,5 @@ void add_dnodeint(stack_t **stack, stack_t *new_node)
 	if (*stack != NULL)
 		(*stack)->prev = new_node;
 	*stack = new_node;
+	top = new_node;
 }

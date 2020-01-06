@@ -49,13 +49,14 @@ void f_pall(stack_t **stack, unsigned int line_number)
 		return;
 
 	tmp = *stack;
+
 	while (tmp->next != NULL)
-		tmp = tmp->next;
-	while (tmp)
 	{
 		printf("%d\n", tmp->n);
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
+	top = tmp;
+	printf("%d\n", top->n);
 }
 /**
  * f_pop - push a new element to the stack
@@ -74,7 +75,7 @@ void f_pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->next != NULL)
+	/*if ((*stack)->next != NULL)*/
 		tmp = *stack;
 	(*stack) = (*stack)->next;
 

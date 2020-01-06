@@ -40,9 +40,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Global variable */
+/* Global variable*/ 
 extern char *input[1024];
 char *input[1024];
+
+extern stack_t *top;
+stack_t *top;
 
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
