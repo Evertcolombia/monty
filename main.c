@@ -9,46 +9,15 @@ void __RETURN__(char *string, char *str, char *str1);
  */
 int main(int argc, char **argv)
 {
-	/*char *user_buffer = NULL, *line, *delim = "\n ";*/
-	FILE *file_open;
-	/*size_t bufer_size = 0;*/
-	/*int state = 0;*/
-	unsigned int /*i = 0,*/ num_line = 0;
+
+	unsigned int num_line = 0;
 	stack_t *stack = NULL;
-	/*instruction_t funcs[] = {
-		{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-		{"pop", f_pop}, {"NULL", NULL}
-	};*/
 
 	if (argc != 2)
 		__RETURN__("USAGE: monty file\n", "", "");
 
-	file_open = fopen(argv[argc - 1], "r");
-	if (file_open == NULL)
-		__RETURN__("Error: Can't open file %s\n", argv[argc - 1], " ");
-
-	activate_op(&stack, num_line, file_open);
-	/*while (getline(&user_buffer, &bufer_size, file_open) > 0)
-	{
-		line = user_buffer, num_line++;
-		input[0] = strtok(line, delim);
-		input[1] = strtok(NULL, delim);
-		i = 0;
-
-		activate_op(&stack, num_line);
-		while (funcs[i].opcode != NULL)
-		{
-			if (strcmp(funcs[i].opcode, input[0]) == 0)
-			{
-				funcs[i].f(&stack, num_line);
-				state = 1;
-				break;
-			} i++;
-		}
-		if (state == 1)
-			continue;
-		exit(EXIT_FAILURE);
-	}*/ freeStack(&stack), fclose(file_open);
+	activate_op(&stack, num_line, argv[argc - 1]);
+	freeStack(stack);
 	return (EXIT_SUCCESS);
 }
 

@@ -50,8 +50,8 @@ void f_pint(stack_t **stack, unsigned int line_number);
 void f_pop(stack_t **stack, unsigned int line_number);
 
 void add_dnodeint(stack_t **stack, stack_t *new_node);
-void freeStack(stack_t **stack);
-void activate_op(stack_t **stack, unsigned int line_number, FILE *file_open);
+void freeStack(stack_t *stack);
+void activate_op(stack_t **stack, unsigned int line_number, char *file);
 int is_number(char *num);
 
 #endif

@@ -13,28 +13,24 @@ void f_push(stack_t **stack, unsigned int line_number)
 	char *num = NULL;
 
 	if (input[1] == NULL)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		freeStack(stack) /*fclose(file_open)*/;
-		exit(EXIT_FAILURE);
-	}
+		return;
 	num = input[1];
-	if (is_number(num) == 0)
-	{
-		freeStack(stack);
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+
 	new_num = malloc(sizeof(stack_t));
 	if (new_num == NULL)
 	{
-		freeStack(stack); /*fclose(file_open)*/
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	if (is_number(num) == 0)
+        {
+                freeStack(*stack);
+		free(new_num);
+                fprintf(stderr, "L%d: usage: push integer\n", line_number);
+                exit(EXIT_FAILURE);
+        }
 	new_num->n = atoi(num);
 	add_dnodeint(stack, new_num);
-	printf("si paso\n");
 }
 
 /**

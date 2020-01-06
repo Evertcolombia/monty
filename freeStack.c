@@ -3,15 +3,15 @@
  * freeStack - free a dlinked list
  * @stack: list
  */
-void freeStack(stack_t **stack)
+void freeStack(stack_t *stack)
 {
 	stack_t *tmp;
 
-	while (tmp)
+	while (stack)
 	{
-		tmp = tmp->next;
-		free(*stack);
-		*stack = tmp;
-	} free(tmp);
-	free(*stack);
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
+	free(stack);
 }
