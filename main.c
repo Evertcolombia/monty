@@ -1,5 +1,4 @@
 #include "monty.h"
-void __RETURN__(char *string, char *str, char *str1);
 /**
  * main - entry point
  * @argc: total of arguments
@@ -14,22 +13,12 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		__RETURN__("USAGE: monty file\n", "", "");
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 
 	activate_op(&stack, num_line, argv[argc - 1]);
 	freeStack(stack);
-	return (EXIT_SUCCESS);
-}
-
-/**
- * __RETURN__ - return posix
- * @string: string
- * @str: param
- * @str1: param
- * Return: exit
- */
-void __RETURN__(char *string, char *str, char *str1)
-{
-	fprintf(stderr, string, str, str1);
-	exit(EXIT_FAILURE);
+	return (0);
 }

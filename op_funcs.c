@@ -8,7 +8,7 @@
  */
 void activate_op(stack_t **stack, unsigned int line_number, char *file)
 {
-	char *user_buffer = NULL, *line, *delim = "\n ";
+	char *user_buffer = NULL, *delim = "\n ";
 	int i = 0, state = 0;
 	FILE *file_open;
 	size_t buffer_size = 0;
@@ -17,6 +17,11 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 		{"pint", f_pint}, {NULL, NULL}
 	};
 
+	if (!file)
+	{
+		fprintf(stderr, "Error: Can't open file%s\n", file);
+		exit(EXIT_FAILURE);
+	}
 	file_open = fopen(file, "r");
 	if (file_open == NULL)
 	{
@@ -26,8 +31,8 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 
 	while (getline(&user_buffer, &buffer_size, file_open) > 0)
 	{
-		line = user_buffer, line_number++;
-		input[0] = strtok(line, delim);
+		line_number++;
+		input[0] = strtok(user_buffer, delim);
 		input[1] = strtok(NULL, delim);
 		i = 0;
 		while (funcs[i].opcode != NULL)
