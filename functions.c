@@ -69,7 +69,7 @@ void f_pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		printf("L%d: can't pop an empty", line_number);
+		printf("L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
 
