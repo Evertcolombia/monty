@@ -12,10 +12,8 @@ void f_push(stack_t **stack, unsigned int line_number)
 	stack_t *new_num = NULL;
 	char *num = NULL;
 
-	if (input[1] == NULL)
-		return;
-	num = input[1];
 
+	num = input[1];
 	new_num = malloc(sizeof(stack_t));
 	if (new_num == NULL)
 	{

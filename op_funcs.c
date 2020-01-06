@@ -9,14 +9,9 @@
 void activate_op(stack_t **stack, unsigned int line_number, char *file)
 {
 	char *user_buffer = NULL, *delim = "\n ";
-	int i = 0, state = 0;
+	int state = 0;
 	FILE *file_open;
 	size_t buffer_size = 0;
-	instruction_t funcs[] = {
-		{"push", f_push}, {"pall", f_pall},
-		{"pint", f_pint}, {"pop", f_pop},
-		{NULL, NULL}
-	};
 
 	if (!file)
 	{
@@ -35,17 +30,9 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 		line_number++;
 		input[0] = strtok(user_buffer, delim);
 		input[1] = strtok(NULL, delim);
-		i = 0;
-		while (funcs[i].opcode != NULL)
-		{
-			if (strcmp(funcs[i].opcode, input[0]) == 0)
-			{
-				/*printf("%s\n", funcs[i].opcode);*/
-				funcs[i].f(stack, line_number);
-				state = 1;
-				break;
-			} i++;
-		}
+		start_op(stack, line_number);
+		state = 1;
+
 		if (state == 1)
 			continue;
 		fclose(file_open);
