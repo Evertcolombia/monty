@@ -35,7 +35,9 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 
 		if (state == 1)
 			continue;
-		fclose(file_open);
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+        	line_number, input[0]);
+		/*freeStack(stack),*/ fclose(file_open);
 		exit(EXIT_FAILURE);
 	}
 }
