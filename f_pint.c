@@ -15,6 +15,32 @@ void f_pint(stack_t **stack, unsigned int line_number)
 		printf("%d\n", (*stack)->n);
 }
 
+/**
+ * f_swap - print all nodes in a stack
+ * @stack: double linked list
+ * @line_number: integer
+ */
+void f_swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tmp = (*stack)->next;
+	(*stack)->prev = (*stack)->next;
+	(*stack)->next = tmp->next;
+	tmp->prev = NULL;
+
+	(*stack)->prev = tmp;
+	if (tmp->next)
+		tmp->next->prev = *stack;
+	tmp->next = *stack;
+	(*stack) = (*stack)->prev;
+}
 
 /**
  * f_add - print all nodes in a stack

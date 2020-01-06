@@ -12,7 +12,8 @@ void start_op(stack_t **stack, unsigned int line_number)
 	instruction_t funcs[] = {
 		{"push", f_push}, {"pall", f_pall},
 		{"pint", f_pint}, {"pop", f_pop},
-		{"add", f_add}, {NULL, NULL}
+		{"swap", f_swap}, {"add", f_add},
+		{NULL, NULL}
 	};
 	while (funcs[i].opcode != NULL)
 	{
