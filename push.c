@@ -23,12 +23,12 @@ void f_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	if (is_number(num) == 0)
-        {
-                freeStack(*stack);
+	{
+		freeStack(*stack);
 		free(new_num);
-                fprintf(stderr, "L%d: usage: push integer\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new_num->n = atoi(num);
 	add_dnodeint(stack, new_num);
 }

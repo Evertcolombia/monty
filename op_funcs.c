@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * activate_op - execute the correct funtion
+ * @stack: list
+ * @line_number: integer
+ * @file: file to open
+ */
 void activate_op(stack_t **stack, unsigned int line_number, char *file)
 {
 	char *user_buffer = NULL, *line, *delim = "\n ";
@@ -29,12 +35,13 @@ void activate_op(stack_t **stack, unsigned int line_number, char *file)
 			if (strcmp(funcs[i].opcode, input[0]) == 0)
 			{
 				funcs[i].f(stack, line_number);
-        	                state = 1;
-                	        break;
+				state = 1;
+				break;
 			} i++;
 		}
 		if (state == 1)
 			continue;
+		fclose(file_open);
 		exit(EXIT_FAILURE);
 	}
 }
