@@ -54,6 +54,8 @@ void f_pop(stack_t **stack, unsigned int line_number);
 void f_swap(stack_t **stack, unsigned int line_number);
 void f_add(stack_t **stack, unsigned int line_number);
 void f_nop(stack_t **stack, unsigned int line_number);
+void f_sub(stack_t **stack, unsigned int line_number);
+
 
 void add_dnodeint(stack_t **stack, stack_t *new_node);
 void freeStack(stack_t *stack);

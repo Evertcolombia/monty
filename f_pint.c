@@ -58,9 +58,9 @@ void f_add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = (*stack)->n;
+	tmp = (*stack)->next->n + (*stack)->n;
 	f_pop(stack, line_number);
-	(*stack)->n = (*stack)->n + tmp;
+	(*stack)->n = tmp;
 }
 
 /**
@@ -72,4 +72,23 @@ void f_nop(stack_t **stack, unsigned int line_number)
 {
 	(void) stack;
 	(void) line_number;
+}
+
+/**
+ * f_sub - print all nodes in a stack
+ * @stack: double linked list
+ * @line_number: integer
+ */
+void f_sub(stack_t **stack, unsigned int line_number)
+{
+	int tmp = 0;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack)->next->n - (*stack)->n;
+	f_pop(stack, line_number);
+	(*stack)->n = tmp;
 }
